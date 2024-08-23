@@ -35,6 +35,7 @@ class LinkController extends Controller
         $res = Link::where([
             'shortCode' => $shortCode
         ])->get()->first();
+        
 
         unset($res['accessCount']);
 
@@ -68,9 +69,19 @@ class LinkController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLinkRequest $request, Link $link)
+    public function update(UpdateLinkRequest $request, string $shortCode)
     {
-        //
+        $link = Link::where([
+            'shortCode' => $shortCode
+        ]);
+
+        $link->update([
+            'url' => $request->validated()
+        ]);
+
+        $res = $link->get()->first();
+
+        return new LinkResource($res);
     }
 
     /**

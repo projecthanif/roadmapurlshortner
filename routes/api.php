@@ -12,5 +12,6 @@ Route::get('/user', function (Request $request) {
 Route::prefix('/v1')->group(function () {
     Route::apiResource('/link', LinkController::class);
     Route::get('/shorten/{shortCode}', [LinkController::class, 'short']);
+    Route::put('/shorten/{shortCode}', [LinkController::class, 'update']);
     Route::get('/shorten/{shortCode}/stats', [LinkController::class, 'stats']);
 });
