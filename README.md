@@ -29,7 +29,7 @@ Create Short URL
 Create a new short URL using the POST method
 
 ```
-POST /shorten
+POST /api/v1/shorten
 {
   "url": "https://www.example.com/some/long/url"
 }
@@ -50,7 +50,7 @@ The endpoint should validate the request body and return a 201 Created status co
 Retrieve the original URL from a short URL using the GET method
 
 ```
-GET /shorten/abc123
+GET /api/v1/shorten/abc123
 ```
 The endpoint should return a 200 OK status code with the original URL i.e.
 
@@ -68,7 +68,7 @@ The endpoint should return a 200 OK status code with the original URL i.e.
 Update an existing short URL using the PUT method
 
 ```
-PUT /shorten/abc123
+PUT /api/v1/shorten/abc123
 {
   "url": "https://www.example.com/some/updated/url"
 }
@@ -89,12 +89,12 @@ The endpoint should validate the request body and return a 200 OK status code wi
 Delete an existing short URL using the DELETE method
 
 ```
-DELETE /shorten/abc123
+DELETE /api/v1/shorten/abc123
 ```
 # Get URL Statistics
 Get statistics for a short URL using the GET method
 ```
-GET /shorten/abc123/stats
+GET /api/v1/shorten/abc123/stats
 ```
 The endpoint should return a 200 OK status code with the statistics i.e.
 ```
